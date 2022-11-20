@@ -12,10 +12,10 @@
 /.next/
 /out/
 
+sanity/node_modules
+
 # production
 /build
-
-sanity/node_modules
 
 # misc
 .DS_Store

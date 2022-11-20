@@ -1,46 +1,54 @@
-import React from 'react'
-
-import { SocialIcon } from "react-social-icons"
+import React from "react";
+import { SocialIcon } from "react-social-icons";
 import { motion } from "framer-motion";
-import Link from 'next/link';
-type Props = {}
+import Link from "next/link";
+import { Social } from "../typings";
+import { url } from "inspector";
 
-export default function Header({}: Props) {
+type Props = {
+  socials: Social[];
+};
+
+export default function Header({ socials }: Props) {
   return (
-    <header className="sticky top-0 p-5 flex items-start justify-between max-w-7xl mx-auto">
-          
-    <motion.div 
-    initial={{  
-        x:-500,
-        opacity:0,
-        scale:0.5,
-    }}
-    animate={{
-        x:0,
-        opacity:1,
-        scale:1,
-    }}
+    <header className="sticky top-0 p-3 sm:p-5 flex items-center justify-between max-w-7xl mx-auto xl:items-center z-10 ">
+      <motion.div
+        initial={{
+          x: -500,
+          opacity: 0,
+          scale: 0.4,
+        }}
+        animate={{
+          x: 0,
+          opacity: 1,
+          scale: 1,
+        }}
+        transition={{
+          duration: 1.5,
+        }}
+        className="flex flex-row items-center w-2/3 sm:w-fit "
+      >
+        <Link href="#hero">
+          <img
+            className="sm:hidden h-9 w-9 rounded-full hover:grayscale-0 cursor-pointer filter contrast-125 "
+            src="https://i.ibb.co/svscfdV/logo-2.png"
+            alt=""
+          />
+        </Link>
+        {/* Social Icons */}
+        {socials.map((social) => (
+          <SocialIcon
+            key={social._id}
+            url={social.url}
+           // network={social.url.includes("wa.me") ? "whatsapp" : ""}
+            fgColor="gray"
+            bgColor="transparent"
+            target="_blank"
+          />
+        ))}
+      </motion.div>
 
-    transition ={{
-        duration:1.5
-    }}
-    
-    className="flex flex-row items-center" >
-
-    <SocialIcon url="https://linkedin.com/in/jaketrent" 
-    fgColor="gray"
-    bgColor="transparent"/>
-
-    <SocialIcon url="https://linkedin.com/in/jaketrent" 
-                fgColor="gray"
-                bgColor="transparent"/> 
-
-    <SocialIcon url="https://linkedin.com/in/jaketrent" 
-                fgColor="gray"
-                bgColor="transparent"/> 
-
-    </motion.div>
-    <Link href="#contact">
+      <Link href="#contact">
         <motion.div
           initial={{
             x: 500,
@@ -68,7 +76,6 @@ export default function Header({}: Props) {
           </p>
         </motion.div>
       </Link>
-   
-</header> 
-  )
+    </header>
+  );
 }

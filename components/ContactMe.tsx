@@ -14,29 +14,29 @@ type Props = {};
 
 function ContactMe({}: Props) {
   const { register, handleSubmit } = useForm<Inputs>();
-  const onSubmit: SubmitHandler<Inputs> = (formData: { subject: any; name: any; email: any; message: any; }) => {
+  const onSubmit: SubmitHandler<Inputs> = (formData) => {
     window.location.href = `mailto:varunjcnayak@gmail.com?subject=${formData.subject}&body=Hi, my name is ${formData.name} (${formData.email}). I am contacting you through contact form on your website. ${formData.message}`;
   };
 
   return (
     <div
       className="
-    min-h-screen relative flex flex-col text-center md:text-left md:flex-row max-w-7xl px-10 justify-evenly mx-auto items-center"
+    min-h-screen relative flex flex-col text-center md:text-left md:flex-row max-w-7xl px-5 justify-evenly mx-auto items-center"
     >
       <h3 className="pageHeading">Contact</h3>
 
       <div
         className="
-      flex flex-col space-y-1 2xl:space-y-10 mt-[15vh]"
+      flex flex-col space-y-1 2xl:space-y-10 mt-[9vh]"
       >
-        <h4 className="text-lg sm:text-2xl 2xl:text-4xl font-semibold text-center ">
+        <h4 className="text-lg sm:text-2xl 2xl:text-4xl font-semibold text-center">
           I have got just what you need.{" "}
           <span className="decoration-[#FFE55C]/50 underline">Let&apos;s Talk.</span>
         </h4>
 
         <div
           className="
-        space-y-3 2xl:space-y-8"
+        space-y-5 2xl:space-y-10"
         >
           <div className="flex items-center space-x-2 sm:space-x-5 justify-center">
             <PhoneIcon className="h-5 w-5 sm:h-7 sm:w-7 animate-pulse text-[#FFE55C]" />
@@ -53,7 +53,7 @@ function ContactMe({}: Props) {
           <div className="flex items-center space-x-2 sm:space-x-5 justify-center">
             <MapPinIcon className="h-5 w-5 sm:h-7 sm:w-7 animate-pulse text-[#FFE55C]" />
             <p className="text-sm sm:text-xl 2xl:text-2xl">
-              Mangaluru
+             Mangaluru, Karnataka
             </p>
           </div>
         </div>

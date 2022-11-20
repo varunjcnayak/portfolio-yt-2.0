@@ -1,34 +1,39 @@
-import React from 'react'
-import Image from 'next/image';
 import Link from "next/link";
-import {Cursor,useTypewriter} from "react-simple-typewriter";
-import Backgroundcircles from './Backgroundcircles';
-type Props = {}
+import React from "react";
+import { Cursor, useTypewriter } from "react-simple-typewriter";
+import { urlFor } from "../sanity";
+import { PageInfo } from "../typings";
+import BackgroundCircles from "./BackgroundCircles";
 
-export default function Hero({}: Props) {
-    const [text, count] = useTypewriter({
-        words: [
-            "Hi, Varun Nayak K here",
-            "Guy who loves to code and Football",
-            "Check out my site"
-        ],
-        loop:true,
-        delaySpeed: 2000,
-    });
+type Props = {
+  pageInfo: PageInfo;
+};
+
+export default function Hero({ pageInfo }: Props) {
+  const [text, count] = useTypewriter({
+    words: [
+      `Hi, The name's ${pageInfo?.name}`,
+      "Guy-who-loves-football.tsx       CR7 !important",
+      "<ButLovesToCodeMore />",
+    ],
+    loop: true,
+    delaySpeed: 2000,
+    deleteSpeed: 35,
+  });
   return (
     <div className="h-screen flex flex-col space-y-8 items-center justify-center text-center overflow-hidden">
-        <Backgroundcircles />
-     
-          
-        <img className=" relative rounded-full h-32 mx-auto object-cover"
-         src="\ProPic.jpg"
-         alt="her0"></img>
-         
-         <div className="z-20">
+      <BackgroundCircles />
+      <img
+        className="relative rounded-full h-32 w-32 mx-auto object-cover"
+        src={urlFor(pageInfo?.heroImage).url()}
+        alt=""
+      />
+
+      <div className="z-20">
         <h2 className="
         tracking-[10px]
         text-sm uppercase text-gray-500 pb-2 sm:tracking-[15px]">
-          Data Analyst
+          {pageInfo?.role}
         </h2>
         <h1 className="text-[22px] pb-12 h-8 px-2
         sm:pb-8 sm:h-24 lg:h-32 2xl:h-1/3
@@ -52,8 +57,6 @@ export default function Hero({}: Props) {
           </Link>
         </div>
       </div>
-
-
     </div>
-  )
+  );
 }

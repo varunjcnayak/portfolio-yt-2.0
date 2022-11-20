@@ -1,14 +1,14 @@
 import React from "react";
 import { motion } from "framer-motion";
-  //import { Skill } from "../typings";
-//import { urlFor } from "../sanity";
+import { Skill } from "../typings";
+import { urlFor } from "../sanity";
 
 type Props = {
- // skill: Skill;
+  skill: Skill;
   directionLeft?: boolean;
 };
 
-function Skill({  directionLeft }: Props) {
+function Skill({ skill, directionLeft }: Props) {
   return (
     <div className="group relative flex cursor-pointer hover:scale-110 transition duration-300 ease-in-out">
       <motion.div
@@ -23,7 +23,7 @@ function Skill({  directionLeft }: Props) {
         rounded-full border flex items-center justify-center border-gray-500 sm:h-24 sm:w-24 xl:h-[11vh] xl:w-min 2xl:h-[13vh] 2xl:w-min filter group-hover:grayscale transition duration-300 ease-in-out z-0 overflow-hidden p-3"
       >
         <img
-         // src={urlFor(skill?.image).url()}
+          src={urlFor(skill?.image).url()}
           alt="skill"
           className="object-contain"
         />
@@ -35,9 +35,9 @@ function Skill({  directionLeft }: Props) {
       absolute opacity-0 group-hover:opacity-80 transition duration-300 ease-in-out group-hover:bg-white sm:h-24 sm:w-24 rounded-full xl:h-[11vh] xl:w-min 2xl:h-[13vh] 2xl:w-min"
       >
         <div className="flex items-center justify-center h-full">
-          {/* <p className="2xl:text-2xl font-bold text-black opacity-100">
-           {skill.title}
-          </p> */}
+          <p className="2xl:text-2xl font-bold text-black opacity-100">
+            {skill.title}
+          </p>
         </div>
       </div>
       </motion.div>

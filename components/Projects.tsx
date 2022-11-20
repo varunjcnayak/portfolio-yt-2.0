@@ -30,7 +30,7 @@ function Projects({ projects }: Props) {
             className=" p-5 mt-5
             w-screen flex-shrink-0 snap-center flex flex-col space-y-5 items-center justify-center sm:p-20 sm:mt-0 md:p-44 sm:h-screen"
           >
-            <Link href={project?.linkToBuild} passHref>
+            <Link href="">
               <a target="_blank">
                 <div
                   className="flex relative transition-all cursor-pointer 
@@ -66,7 +66,7 @@ function Projects({ projects }: Props) {
               </h4>
 
               <div className="flex items-center justify-center space-x-4 sm:space-x-8">
-                {project?.technologies.map((technology: { _id: React.Key | null | undefined; image: any; }) => (
+                {project?.technologies.map((technology) => (
                   <img
                     className="h-10 w-10 object-contain"
                     key={technology._id}

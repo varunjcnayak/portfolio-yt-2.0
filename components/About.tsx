@@ -1,13 +1,13 @@
 import React from "react";
 import { motion } from "framer-motion";
-// import { PageInfo } from "../typings";
-// import { urlFor } from "../sanity";
+import { PageInfo } from "../typings";
+import { urlFor } from "../sanity";
 
 type Props = {
-  //pageInfo: PageInfo;
+  pageInfo: PageInfo;
 };
 
-export default function About({ }: Props) {
+export default function About({ pageInfo }: Props) {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -29,7 +29,7 @@ export default function About({ }: Props) {
         }}
         whileInView={{ x: 0, opacity: 1 }}
         viewport={{ once: true }}
-        //src={urlFor(pageInfo?.profilePic).url()}
+        src={urlFor(pageInfo?.profilePic).url()}
         alt="picture of me"
         className="
         w-40 h-40 mt-32 mb-2
@@ -51,7 +51,7 @@ export default function About({ }: Props) {
         <p
           className="text-base  sm:h-full sm:overflow-y-auto"
         >
-        {/* {pageInfo?.backgroundInformation} */}
+          {pageInfo?.backgroundInformation}
         </p>
       </div>
     </motion.div>
